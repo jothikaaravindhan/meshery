@@ -76,20 +76,18 @@ See the following tutorials on how to use Meshery Designs for collaboratively ma
   <details>
   <summary>
     <p style="display:inline">
-      <a href="{{ site.baseurl }}/guides/infrastructure-management" class="text-black">🧑‍🔬 Tutorials</a>
+      <a href="{{ site.baseurl }}/guides/tutorials" class="text-black">🧑‍🔬 Tutorials</a>
     </p>
   </summary>
   <ul class="section-title">
-      {% assign tutorials = site.pages | where: "category","tutorials" %}
-      {% for item in tutorials %}
-      {% if item.type=="guides" and item.category=="tutorials" and item.language=="en" -%}
-        <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
-        {% if item.abstract != " " %}
-          -  {{ item.abstract }}
+    {% assign tutorials = site.pages | where: "category","tutorials" %}
+    {% for item in tutorials %}
+      <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+        {% if item.abstract != " " and item.abstract != nil %}
+          - {{ item.abstract }}
         {% endif %}
-        </li>
-        {% endif %}
-      {% endfor %}
+      </li>
+    {% endfor %}
   </ul>
 </details>
 
